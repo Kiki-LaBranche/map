@@ -37,232 +37,359 @@
   var features = map.queryRenderedFeatures(e.point, {
     layers: ['the-azoulay-miles-team'] // replace this with the name of the layer
   });
-
-  if (!features.length) {
-    return;
-  }
-
-  var feature = features[0];
-
-  var popup = new mapboxgl.Popup({ offset: [0, -15] })
-    .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-    .setLngLat(feature.geometry.coordinates)
-    .addTo(map);
-});
-mapboxgl.accessToken = 'pk.eyJ1IjoidHJhbWlrYWwiLCJhIjoiY2pheTJjcDh3MHo5ZzJ3c2h0MmwzeXVlNSJ9.zFElbtyS50WIOdA_qwDMaw';
-
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/tramikal/cjbgsopitb8y42snsrkphomm0',
-    center: [-77.04, 38.907],
-    zoom: 11.15
-});
-
-map.on('load', function () {
-    // Add a layer showing the places."description": "<strong>Truckeroo</strong><p><a href=\"http://www.truckeroodc.com/www/\" target=\"_blank\">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>",    map.addLayer({
-        "id": "places",
         "type": "symbol",
         "source": {
             "type": "geojson",
             "data": {
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "description": "<strong>173 Perry St Apt. 4N, New York, NY 10014</strong><p><a href=\"https://theandrewazoulayteam.elliman.com/new-york-city/meier-north-tower-173-perry-street-4n-manhattan-wyemfrh" target=\"_blank\">Meier North Tower</a>Contemporary urban living is beautifully embodied in this sensational 2 bedroom 2.5 bath West Village waterfront apartment overlooking the Hudson.</p>"
-      },
-      "geometry": {
-        "coordinates": [
-          -74.00978,
-          40.734814
-        ],
-        "type": "Point"
-      },
-      "id": "address.1076070346298720"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "description": "<strong>923 5th Ave Apt 4B, New York, New York 10021</strong><p><a href=\"https://theandrewazoulayteam.elliman.com/new-york-city/meier-north-tower-173-perry-street-4n-manhattan-wyemfrh" target=\"_blank\">Meier North Tower</a> Wake up every morning directly overlooking the natural beauty of Fifth Avenue's mature elms and lush greenery of Central Park! Evening sunsets are as amazing in this elegant, supremely-located west-facing 2-bedroom 2-bath apartment at the white-glove 923 Fifth Ave in the prized Upper East Side Historic District.</p>"
-      },
-      "geometry": {
-        "coordinates": [
-          -73.965994,
-          40.773136
-        ],
-        "type": "Point"
-      },
-      "id": "address.14823245615362620"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "cornwall": "255 W 90th St, Manhattan, New York, New York 10024, United States",
-        "description": "Being totally gut-renovated, bring your designer! A new to perfection Upper West Side 2 bedroom 2 bath Penthouse dream home with phenomenal outdoor space (2100 sf total) stretching around all 4 sides!"
-      },
-      "geometry": {
-        "coordinates": [
-          -73.974822,
-          40.791194
-        ],
-        "type": "Point"
-      },
-      "id": "address.15243070741762470"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "the_laurel": "400 E 67th St, Manhattan, New York, New York 10065, United States",
-        "description": " This high floor sprawling space presents 2BRs including a large master suite, 2.5 baths, a roomy, sunny living/dining area, a study, plus a breakfast room off the kitchen."
-      },
-      "geometry": {
-        "coordinates": [
-          -73.958128,
-          40.764284
-        ],
-        "type": "Point"
-      },
-      "id": "address.16496832920994580"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Merchant House": "35 N Moore St, Manhattan, New York, New York 10013, United States",
-        "description": "A showplace of private perfection awaits you in this extraordinary 6 bedroom 6.5 bath trophy penthouse atop the prized Merchant House loft condominium! This enviable penthouse paradise on one of Tribeca's most fabled and coveted streets boasts a massive 7200-SF interior where every inch has been meticulously renovated."
-      },
-      "geometry": {
-        "coordinates": [
-          -74.007899,
-          40.719885
-        ],
-        "type": "Point"
-      },
-      "id": "address.1821240158201450"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "place_name": "2458 National Dr, Brooklyn, New York, New York 11234, United States",
-        "Merchant House": ""
-      },
-      "geometry": {
-        "coordinates": [
-          -73.90873,
-          40.604221
-        ],
-        "type": "Point"
-      },
-      "id": "address.1843644654242890"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "PHB": "255 W 90th St, Manhattan, New York, New York 10024, United States",
-        "description": "This unique home with grand double door entry and foyer is rich in detail and craftsmanship with the perfect balance of warm earth tones with accents in bronze, metal, and mirror.. Rich hickory hardwood floors, in a custom chevron pattern, cerused Cypress wood millwork, and dramatic stone enhance this sophisticated residence."
-      },
-      "geometry": {
-        "coordinates": [
-          -74.005359,
-          40.713725
-        ],
-        "type": "Point"
-      },
-      "id": "address.2963883436588390"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "mercer_street": "40 Mercer St, Manhattan, New York, New York 10013, United States",
-        "description": "Rental: This remarkable high-floor corner loft with private entry, 11-foot-high ceilings, vast glass curtain walls, and panoramic city views presents a truly unique opportunity-that of living in a 21st-century architectural landmark at the epicenter of a cultural and fashion mecca."
-      },
-      "geometry": {
-        "coordinates": [
-          -74.00092,
-          40.721244
-        ],
-        "type": "Point"
-      },
-      "id": "address.323742088858080"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "chelsea": "551 W 21st St, Manhattan, New York, New York 10011, United States",
-        "description": "Living well never goes out of style, as this stunning 2 bedroom 2 and a half bath West Chelsea condo residence designed by the renowned Foster + Partners proves. Expansive and exquisite, this 2,113 sq ft home is flooded with natural light and brimming with refined finishes, from gorgeous solid oak flooring to luxurious marble, to top-of-the-line fixtures & appliances. A sense of drama is instantly created upon entering the elegant foyer with custom lighting & detailed millwork."
-      },
-      "geometry": {
-        "coordinates": [
-          -74.006653,
-          40.74705
-        ],
-        "type": "Point"
-      },
-      "id": "address.5241454917331620"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "park": "510 Park Avenue, Manhattan, New York, New York, 10022, United States",
-        "description": "This expansive 3,000 SF luxury dream residence with an elevator, 4 large bedrooms, 4.5 beautiful baths, and magnificently-designed light-filled living space is complemented by 2 fabulous wraparound terraces providing the ultimate outdoor enjoyment. Light pours in from oversized windows looking out over the city, with soaring ceilings optimizing airiness."
-      },
-      "geometry": {
-        "coordinates": [
-          -74.016598,
-          40.707011
-        ],
-        "type": "Point"
-      },
-      "id": "address.8384571913348540"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "soho": "510 Park Avenue, Manhattan, New York, New York, 10022, United States",
-        "description": " This expansive 3,000 SF luxury dream residence with an elevator, 4 large bedrooms, 4.5 beautiful baths, and magnificently-designed light-filled living space is complemented by 2 fabulous wraparound terraces providing the ultimate outdoor enjoyment. Light pours in from oversized windows looking out over the city, with soaring ceilings optimizing airiness."
-      },
-      "geometry": {
-        "coordinates": [
-          -73.964767,
-          40.715641
-        ],
-        "type": "Point"
-      },
-      "id": "address.8964280453131210"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "place_name": "11 Hubert St, Manhattan, New York, New York 10013, United States",
-        "description": "A nearly 3,000 square foot master suite spanning an entire floor with his and her closet/bathroom suites and a duplex her closet with an internal stair-case, a catering kitchen, a prep kitchen and a main kitchen, a breakfast room, a family room, a double high 50 foot long living room, a dining room plus 3 other master bedroom suites, 2 guest rooms, a staff suite, and a house manager office. The house is configured so that in addition to the planned 7 bedrooms, a further 3 rooms (the two studies plus the family room) can be used as bedrooms if so desired as they each have full en-suite bathrooms and closets.."
-      },
-      "geometry": {
-        "coordinates": [
-          -74.009369,
-          40.721171
-        ],
-        "type": "Point"
-      },
-      "id": "address.9518931542200140"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "3rdfl": "8 W 19th St, Manhattan, New York, New York 10011, United States",
-        "description": "The highlight of the pristinely landscaped property is an incredible 4-story, 14,000 sq ft main home with captivating views, 4 water-view master suites, 8 full spa baths, 2 elegant powder rooms, a fully-finished lower level, multiple terraces providing 5,500 sq ft of outdoor bliss."
-      },
-      "geometry": {
-        "coordinates": [
-          -73.992245,
-          40.739227
-        ],
-        "type": "Point"
-      },
-      "id": "address.9937485202189850"
-    }
-  ],
-  "type": "FeatureCollection"
-},
+                "features": [
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "70 Grand St, Manhattan, New York, New York 10013, United States",
+                      "description": "Rare, sensational corner loft in Soho's sought-after Historic Cast Iron District. Impeccably architect-designed & flooded with natural light, beaming in from 16 oversized windows on 3 exposures! Sleek modern style melds with classic loft distinction in this awing 3 BR, 2.5 bath, 3,000+ sq ft home occupying the 4th floor of a fabulous 1877 Neo-Grec cast iron building."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.002987,
+                        40.721999
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.10151041604131210"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "173 Perry St",
+                      "description": "Contemporary urban living is beautifully embodied in this sensational 2 bedroom 2.5 bath West Village waterfront apartment overlooking the Hudson. "
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.00978,
+                        40.734814
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.1076070346298720"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "25 Newground Ln, Water Mill, New York 11976, United States",
+                      "description": "Live the Hamptons dream, in a premier-quality new construction estate in Bridgehampton created by the renowned Farrell Building Company. Resort-like living is yours on 1.73 acres graced by a heated gunite swimming pool, and relaxing."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.358383,
+                        40.944923
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.11030340824130670"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title2": "184 Hands Creek Rd, East Hampton, New York 11937, United States",
+                      "description": "Live the Hamptons dream, in a fabulous premier-quality new construction estate in East Hampton created by the renowned Farrell Building Company. Resort-like living is yours on 2.66 acres graced by a heated gunite swimming pool, relaxing spa and tennis court."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.200625,
+                        40.983769
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.11332496436223670"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "923 5th Ave, Manhattan, New York, New York 10021, United States",
+                      "description": "Wake up every morning directly overlooking the natural beauty of Fifth Avenue's mature elms and lush greenery of Central Park! Evening sunsets are as amazing in this elegant, supremely-located west-facing 2-bedroom 2-bath apartment at the white-glove 923 Fifth Ave in the prized Upper East Side Historic District."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -73.965994,
+                        40.773136
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.14823245615362620"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "255 W 90th St, Manhattan, New York, New York 10024, United States",
+                      "description": "Being totally gut-renovated, bring your designer! A new to perfection Upper West Side 2 bedroom 2 bath Penthouse dream home with phenomenal outdoor space (2100 sf total) stretching around all 4 sides!"
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -73.974822,
+                        40.791194
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.15243070741762470"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "400 E 67th St, Manhattan, New York, New York 10065, United States",
+                      "description": "Enjoy a platinum standard of luxury enhanced by the finest fitness and social amenities at the Upper East Side's brand new white-glove living destination, The Laurel."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -73.958128,
+                        40.764284
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.16496832920994580"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "35 N Moore St, Manhattan, New York, New York 10013, United States",
+                      "description": "A showplace of private perfection awaits you in this extraordinary 6 bedroom 6.5 bath trophy penthouse atop the prized Merchant House loft condominium! This enviable penthouse paradise on one of Tribeca's most fabled and coveted streets boasts a massive 7200-SF interior where every inch has been meticulously renovated."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.007899,
+                        40.719885
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.1821240158201450"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "place_name": "2458 National Dr, Brooklyn, New York, New York 11234, United States",
+                      "Merchant House": ""
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -73.90873,
+                        40.604221
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.1843644654242890"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "280 Highland Ter, Sag Harbor, New York 11932, United States",
+                      "description": "Magnificence awaits at this superbly-crafted 12,000 +/- square foot Farrell Building Company estate set on two beautiful Bridgehampton acres on coveted Highland Terrace, bordering 60 acres of peaceful natural reserve facing west to spectacular sunsets. Impeccably designed by Farrell Design Team, this stunning estate boasts 10 generously sized bedrooms and 12 luxurious bathrooms."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.293176,
+                        40.927542
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.18673550220142360"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "255 W 90th St, Manhattan, New York, New York 10024, United States",
+                      "description": "This unique home with grand double door entry and foyer is rich in detail and craftsmanship with the perfect balance of warm earth tones with accents in bronze, metal, and mirror.. Rich hickory hardwood floors, in a custom chevron pattern, cerused Cypress wood millwork, and dramatic stone enhance this sophisticated residence."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.005359,
+                        40.713725
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.2963883436588390"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "40 Mercer St, Manhattan, New York, New York 10013, United States",
+                      "description": "Rental: This remarkable high-floor corner loft with private entry, 11-foot-high ceilings, vast glass curtain walls, and panoramic city views presents a truly unique opportunity-that of living in a 21st-century architectural landmark at the epicenter of a cultural and fashion mecca."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.00092,
+                        40.721244
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.323742088858080"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "551 W 21st St, Manhattan, New York, New York 10011, United States",
+                      "description": "Grand living in a bucolic setting on 1.60 acres in Water Mill, just minutes from Mecox Beach! Spend a day by the water or enjoy wonderful resort-like amenities on your own private pristinely-landscaped grounds."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.321167,
+                        40.913449
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.4113933914934760"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "551 W 21st St, Manhattan, New York, New York 10011, United States",
+                      "description": "Living well never goes out of style, as this stunning 2 bedroom 2 and a half bath West Chelsea condo residence designed by the renowned Foster + Partners proves. Expansive and exquisite, this 2,113 sq ft home is flooded with natural light and brimming with refined finishes, from gorgeous solid oak flooring to luxurious marble, to top-of-the-line fixtures & appliances."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.006653,
+                        40.74705
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.5241454917331620"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "184 Bluff Rd, East Hampton, New York 11930, United States",
+                      "description": "This amazing property is within immediate walking distance to the pristine ocean beaches of Amagansett. The Signature Home on this rarely available property includes a master suite with private terrace and gas fireplace."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.123275,
+                        40.975057
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.5424143890267990"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "30 Lawrence Ct, Water Mill, New York 11976, United States",
+                      "description": ". The expansive, sun-drenched interior is complimented by distinctive architectural details and top-of-the-line finishes that include finished white oak floors, rich stonework and marble, designer lighting and state-of-the-art systems."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.330385,
+                        40.919242
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.6247637664327500"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "47 Crescent Ave, Water Mill, New York 11976, United States",
+                      "description": "Resort-style living in Watermill South bordering a tranquil 34-acre reserve, right by the Mecox Bay. This incredible 8,600+/- square foot showplace home sits on 2.6 private acres with a huge finished lower level, 50' heated gunite pool, spa, 2-story pool house, outdoor shower and sunken tennis court-the ultimate setting for entertaining and enjoyment."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.341811,
+                        40.909204
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.8267114867692520"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "510 Park Avenue, Manhattan, New York, New York, 10022, United States",
+                      "description": "This expansive 3,000 SF luxury dream residence with an elevator, 4 large bedrooms, 4.5 beautiful baths, and magnificently-designed light-filled living space is complemented by 2 fabulous wraparound terraces providing the ultimate outdoor enjoyment. Light pours in from oversized windows looking out over the city, with soaring ceilings optimizing airiness."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.016598,
+                        40.707011
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.8384571913348540"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "60 Riverside Blvd, Manhattan, New York, New York 10069, United States",
+                      "description": "Spacious 4 bedroom, 4.5 bathroom available in The Aldyn, one of Riverside Boulevard's finest condominiums. Entertain in style as the sun lights up the Hudson River, providing brilliant daytime light and epic sunsets."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -73.990809,
+                        40.774965
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.8443182001194280"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "11 Hubert St, Manhattan, New York, New York 10013, United States",
+                      "description": "A nearly 3,000 square foot master suite spanning an entire floor with his and her closet/bathroom suites and a duplex her closet with an internal stair-case, a catering kitchen, a prep kitchen and a main kitchen, a breakfast room, a family room, a double high 50 foot long living room, a dining room plus 3 other master bedroom suites, 2 guest rooms, a staff suite, and a house manager office. The house is configured so that in addition to the planned 7 bedrooms, a further 3 rooms (the two studies plus the family room) can be used as bedrooms if so desired as they each have full en-suite bathrooms and closets.."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.009369,
+                        40.721171
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.9518931542200140"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "70 Little West 12th St, Manhattan, New York, New York 10014, United States",
+                      "description": "Views that dazzle, finishes that impress, living space that is spectacular! This phenomenal 4 bedroom, 4 bath, 3,655 sq ft oasis perched high on the 30th floor of the elegant, eco-friendly Visionaire condominium at 70 Little West Street is incomparable in every way. Interiors designed by Thom Filicia ,Enjoy the good life in one of Battery Park's most luxurious residences and Manhattan's first LEED Platinum Certified buildings, Massive floor-to-ceiling windows wrapping around the apartment to the north, east and west invite in tremendous natural light and showcase breathtaking panoramic views, with direct vistas of the Freedom Tower and New York Harbor."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -74.008578,
+                        40.740563
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.958280358636800"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "984 Noyac Path, Water Mill, New York 11976, United States",
+                      "description": "Now ready for sale, nearly land value! Conceived and created by famed architect, sculptor and artist, Setsuo Ito, this extraordinary Water Mill property is situated on 9 pristine acres on a 300-foot elevation, the highest point in the Hamptons. An artful hybrid of traditional and modern styles, the 12,000 square foot masterpiece."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -72.349839,
+                        40.956163
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.9625395881191540"
+                  },
+                  {
+                    "type": "Feature",
+                    "properties": {
+                      "title": "8 W 19th St, Manhattan, New York, New York 10011, United States",
+                      "description": "Designer dream loft, perfectly located at the crossroads of the Flatiron District & Chelsea, in a boutique prewar condominium steps from Fifth Avenue. Styled to perfection, this sprawling apartment with 5 bedrooms, a den & 4 full bathrooms enjoys direct elevator access from one of 2 elevators that serve only 11 apartments. Catch your breath as you enter the beautiful 4,100 sqft (approx) interior graced by refined finishes & well-proportioned rooms. The thoughtful layout conveys the true feeling of home, with flowing main rooms for comfortable living & entertaining as well as private spaces for quiet times."
+                    },
+                    "geometry": {
+                      "coordinates": [
+                        -73.992245,
+                        40.739227
+                      ],
+                      "type": "Point"
+                    },
+                    "id": "address.9937485202189850"
+                  }
+                ],
+                "type": "FeatureCollection"
+    });
         "layout": {
             "icon-image": "{icon}-15",
             "icon-allow-overlap": true
