@@ -25,16 +25,26 @@
     }
     </style>
   </head>
-  <body>
-    <div id='map-popups' class='map'></div>
+     <body>
+        <div id='map-popups' class='map'></div>
     <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoidHJhbWlrYWwiLCJhIjoiY2pheTJjcDh3MHo5ZzJ3c2h0MmwzeXVlNSJ9.zFElbtyS50WIOdA_qwDMaw'; // replace this with your access token
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/tramikal/cjbgsopitb8y42snsrkphomm0' // replace this with your style URL
     });
+      
+        var features = map.queryRenderedFeatures(e.point, {
+    layers: ['the-azoulay-miles-team'] // replace this with the name of the layer
+  });
+      
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+      
     map.on('click', function(e) {
-      map.on('load', function () {
         "id": "places",
         "type": "symbol",
         "source": {
@@ -394,9 +404,7 @@
             "icon-allow-overlap": true
         }
     });
-  var features = map.queryRenderedFeatures(e.point, {
-    layers: ['the-azoulay-miles-team'] // replace this with the name of the layer
-  });
+
       
   if (!features.length) {
     return;
@@ -404,11 +412,6 @@
 
   var feature = features[0];
 
-  var popup = new mapboxgl.Popup({ offset: [0, -15] })
-    .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-    .setLngLat(feature.geometry.coordinates)
-    .addTo(map);
 });
 
     // When a click event occurs on a feature in the places layer, open a popup at the
