@@ -26,7 +26,8 @@
     </style>
   </head>
   <body>
-    <div id='map'></div>
+    <div id='map-popups' id='map'></div>
+    
     <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoidHJhbWlrYWwiLCJhIjoiY2pheTJjcDh3MHo5ZzJ3c2h0MmwzeXVlNSJ9.zFElbtyS50WIOdA_qwDMaw'; // replace this with your access token
     var map = new mapboxgl.Map({
@@ -50,17 +51,9 @@
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
-mapboxgl.accessToken = 'pk.eyJ1IjoidHJhbWlrYWwiLCJhIjoiY2pheTJjcDh3MHo5ZzJ3c2h0MmwzeXVlNSJ9.zFElbtyS50WIOdA_qwDMaw';
-
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/tramikal/cjbgsopitb8y42snsrkphomm0',
-    center: [-77.04, 38.907],
-    zoom: 11.15
-});
 
 map.on('load', function () {
-    // Add a layer showing the places."description": "<strong>Truckeroo</strong><p><a href=\"http://www.truckeroodc.com/www/\" target=\"_blank\">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>",    map.addLayer({
+    // Add a layer showing the places. map.addLayer({
         "id": "places",
         "type": "symbol",
         "source": {
