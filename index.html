@@ -36,19 +36,12 @@
         map.on('click', function(e) {
         var features = map.queryRenderedFeatures(e.point, {
     layers: ['the-azoulay-miles-team', 'main_group'] // replace this with the name of the layer
-  });
-  if (!features.length) {
-    return;
-  }
-
-  var feature = features[""];
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
     .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
     .setLngLat(feature.geometry.coordinates)
-    .addTo(map);
-});
+    .addTo(map)
  
     map.on('load', function() {
         "source": {
@@ -427,6 +420,7 @@
     // Change it back to a pointer when it leaves.
     map.on('mouseleave', 'places', function () {
         map.getCanvas().style.cursor = '';
+      });
     });
 });
     </script>
