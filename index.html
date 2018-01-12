@@ -403,15 +403,6 @@
     });
       
 
-    // When a click event occurs on a feature in the places layer, open a popup at the
-    // location of the feature, with description HTML from its properties.
-    map.on('click', 'places', function (e) {
-        new mapboxgl.Popup()
-            .setLngLat(e.features[0].geometry.coordinates)
-            .setHTML(e.features[0].properties.description)
-            .addTo(map);
-    });
-
     // Change the cursor to a pointer when the mouse is over the places layer.
     map.on('mouseenter', 'places', function () {
         map.getCanvas().style.cursor = 'pointer';
