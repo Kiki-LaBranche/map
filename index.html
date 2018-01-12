@@ -12,21 +12,21 @@
         padding: 0;
       }
 
-      #map {
+      .map {
         position: absolute;
         top: 0;
         bottom: 0;
         width: 100%;
       }
 
-      .mapboxgl-popup {
+      #mapboxgl-popup {
         max-width: 400px;
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     }
     </style>
   </head>
   <body>
-    <div id='map'></div>
+    <div id='map-popups' class='map'></div>
     <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoidHJhbWlrYWwiLCJhIjoiY2pheTJjcDh3MHo5ZzJ3c2h0MmwzeXVlNSJ9.zFElbtyS50WIOdA_qwDMaw'; // replace this with your access token
     var map = new mapboxgl.Map({
